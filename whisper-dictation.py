@@ -14,7 +14,7 @@ class SpeechTranscriber:
         self.pykeyboard = keyboard.Controller()
 
     def transcribe(self, audio_data, language=None):
-        result = self.model.transcribe(audio_data, language=language)
+        result = self.model.transcribe(audio_data, language=language, fp16=False)
         is_first = True
         for element in result["text"]:
             if is_first and element == " ":
